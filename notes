@@ -1,0 +1,5 @@
+helm upgrade  en-hello-world  2-kubernetes/helm/ --values=2-kubernetes/helm/values-en.yaml
+helm upgrade  es-hello-world  2-kubernetes/helm/ --values=2-kubernetes/helm/values-es.yaml
+helm upgrade  de-hello-world  2-kubernetes/helm/ --values=2-kubernetes/helm/values-de.yaml
+
+kubectl port-forward service/es-hello-world  3001:80

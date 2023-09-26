@@ -1,0 +1,13 @@
+image:
+  name: hello-world
+  tag: latest
+  registry: adamgolab
+
+service:
+  port: 80
+  targetPort: 8000
+
+deployment:
+  name: hello-world
+  replicas: 1
+  world: World
