@@ -3,7 +3,6 @@ module "gcp-gke" {
 
   source  = "terraform-google-modules/kubernetes-engine/google//modules/beta-private-cluster"
   version = "28.0.0"
-  # insert the 6 required variables here
 
   ip_range_pods            = each.value.ip_range_pods
   ip_range_services        = each.value.ip_range_services
@@ -12,13 +11,10 @@ module "gcp-gke" {
   name                     = each.value.name
   network                  = each.value.network
   project_id               = each.value.project_id
-  regional                 = false
+  regional                 = each.value.regional
   release_channel          = each.value.release_channel
   remove_default_node_pool = each.value.remove_default_node_pool
   subnetwork               = each.value.subnetwork
   zones                    = each.value.zones
   node_pools               = each.value.node_pools
-
-  depends_on = [module.vpc]
-
 }
